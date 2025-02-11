@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>LISTA DE LIBROS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body class="bg-light">
+    <h1 class="text-center display-1 text-info bg-dark">LISTA DE LIBROS</h1>
+  
+    <div class="container">
+        <table class="table table-hover">
+            <thead class="table-info">
+                <tr>
+                    <th class="text-center"><a href="?orden=isbn" class="link-secondary">ISBN</a> </th>
+                    <th class="text-center"><a href="?orden=titulo" class="link-secondary">Titulo</a> </th>
+                    <th class="text-center"><a href="?orden=autor" class="link-secondary">Autor</a> </th>
+                    <th class="text-center">Detalle</th>
+                    <th class=" text-center">Editar</th>
+                    <th class="text-center">Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="libro: ${listalibros}">
+                    <td class="text-center" th:text="${libro.isbn}"></td>
+                    <td class="text-center" th:text="${libro.titulo}"></td>
+                    <td class="text-center" th:text="${libro.autor}"></td>
+                    <td class="text-center"><a th:href="@{detalle(isbn=${libro.isbn})}"
+                            class="btn btn-success">Detalle</a></td>
+
+                    <td class="text-center"><a th:href="@{editar(isbn=${libro.isbn})}"
+                            class="btn btn-info">Editar</a></td>
+                    <td class="text-center"><a th:href="@{borrar(isbn=${libro.isbn})}"
+                            class="btn btn-danger">Borrar</a></td>
+                </tr>
+            </tbody>
+
+
+        </table>
+        <a href="formulariolibro" class="btn btn-primary">Ir al Formulario</a>
+    </div>
+</body>
+
+
+
+</html>

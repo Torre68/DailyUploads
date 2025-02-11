@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .novalido {
+
+            display: inline;
+            color: red;
+
+        }
+
+        .valido {
+
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+
+          
+            $("#f").submit(function (e) {
+               
+
+                let arg = $("#isbn").val();
+                if (!validarLongitud (arg, 3, 10)) {                  
+                 $("#isbn").next().removeClass("valido").addClass("novalido");
+                 e.preventDefault();
+                }
+                
+
+            });
+
+            $("#isbn").on("input",function (e) {
+                
+                let arg = $(this).val();                
+                if (validarLongitud (arg, 3, 10)) {
+                    ($("#isbn").next()).removeClass().addClass("valido");                    
+                } else {                    
+                    ($("#isbn").next()).removeClass().addClass("novalido");
+                }
+            });
+
+            $("#f").submit(function (e) {
+                
+                let arg = $("#titulo").val();
+                if (!validarLongitud (arg,5,20)) {                  
+                 $("#titulo").next().removeClass("valido").addClass("novalido");
+                 e.preventDefault();
+                }
+
+            });
+
+            $("#titulo").on("input",function (e) {
+                
+                let arg = $(this).val();                
+                if (validarLongitud (arg,5,25)) {
+                    ($("#titulo").next()).removeClass().addClass("valido");                    
+                } else {                    
+                    ($("#titulo").next()).removeClass().addClass("novalido");
+                }
+            });
+        });
+
+        function validarLongitud (arg, min, max) {
+            return arg.length >= min && arg.length <= max? true:false;
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <h1 class="text-center bg-dark text-light" >EDITAR LIBRO</h1>
+    <div class="container">
+        <form id="f" method="post" action="insertarlibro">
+            <div class="form-group">
+                <label for="isbn" class="form-label"> ISBN:</label>
+                <input type="text" class="form-control" id="isbn" name="isbn" />
+                <span class="valido">El ISBN debe tener entre 3 y 10 caracteres</span>
+            </div>
+            <div>
+                <label for="titulo" class="form-label"> Titulo:</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" />
+                <span class="valido">El titulo debe tener entre 3 y 10 caracteres</span>
+            </div>
+            <div>
+                <label for="autor" class="form-label"> Autor:</label>
+                <input type="text" class="form-control" id="autor" name="autor" />
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary mt-3" value="nuevo" />
+            </div>
+
+        </form>
+
+    </div>
+</body>
+
+</html>
