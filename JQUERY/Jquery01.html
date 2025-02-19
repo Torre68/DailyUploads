@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        
+        <script> type="text/javascript"
+
+
+
+        function pulsame() {
+
+            //$ es una funcion y recibe un parametro.
+            $(document).ready (function() {
+
+
+                console.log($("#caja").val());
+                var repes=$("#caja").val();
+                
+                $("p").remove();
+                for (var i=0;i<repes;i++){
+                    
+                    $("body").append("<p> hola amigos </p>");
+
+
+                }
+
+
+
+
+
+            })
+
+
+
+        }  
+
+          
+         
+            
+            
+
+        
+        
+        </script>
+    </head>
+        <body id  ="cuerpo">
+            <input type="text" name="caja" id="caja"/>
+            <input type="button" value="pulsar" onclick="pulsame()">
+
+
+
+            
+</body>
+</html>
