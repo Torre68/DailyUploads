@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <style>
+            .nomostrar{
+                display: none;
+            }
+
+            .mostrar{
+                display: block;
+            }
+
+
+
+
+        </style>
+        <script> type="text/javascript"
+
+
+
+        alert("hola");
+        function pulsame() {
+
+
+            var cuerpo=document.getElementById("cuerpo");
+            var p = document.createElement("p");
+            var texto = document.createTextNode("hola amigos");
+            p.appendChild(texto);
+            cuerpo.appendChild(p);
+
+
+
+        }  
+
+          
+         
+            
+            
+
+        
+        
+        </script>
+    </head>
+        <body id  ="cuerpo">
+
+
+
+<input type="button" value= "pulsar" onclick="pulsame()">
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <style>
+            .nomostrar{
+                display: none;
+            }
+
+            .mostrar{
+                display: block;
+            }
+
+
+
+
+        </style>
+        <script> type="text/javascript"
+
+
+
+        alert("hola");
+        function pulsame()   {
+
+           //CORREGIR
+
+                var cajaNota=document.getElementById("nota");
+                var miparrafo= document.getElementById("miparrafo")
+                console.log(cajaNota.value);
+
+                
+                if (cajaNota.value< 0 || cajaNota.value>10){
+                    miparrafo.className="mostrar";
+                }else{
+                    
+                    if (cajaNota.value>=5 && cajaNota.value<=10){
+                        alert ("Aprobado");
+                    }else{ (cajaNota.value>=0 && cajaNota.value<=5) 
+                        
+                        alert("Suspendido");
+                    }
+                    miparrafo.className="nomostrar";
+                   } 
+                }
+
+            
+            
+            
+
+        
+        
+        </script>
+    </head>
+        <body>
+Nota:<input type="text" id="nota" name="nota"/>
+<p class="nomostrar" id="miparrafo">Los datos no son validos</p>
+<input type="button" value= "pulsar" onclick="pulsame()">
+</body>
+</html>
