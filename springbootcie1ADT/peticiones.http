@@ -1,0 +1,17 @@
+GET http://localhost:8080/webapi/libros
+
+#########
+
+POST http://localhost:8080/webapi/libros
+content-type: application/json
+
+{
+"isbn": "50",
+"titulo": "El Padrino II",
+"autor": "Mario Puzzo",
+"paginas": 687
+}
+
+#########
+
+DELETE http://localhost:8080/webapi/libros/1a
